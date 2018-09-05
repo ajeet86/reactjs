@@ -1,11 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom'; 
+import React,{ Component } from 'react';
+import ReactDOM from 'react-dom';
+
+import SearchBar from './components/search_bar'; 
+
+import YTSearch from 'youtube-api-search'
+import VideoList from './components/video_list'; 
+
+import VideoDetails from './components/video_detail'; 
+
+
+
+const API_KEY='AIzaSyB2_0RrqqO4MaFVmBN17BwnsjMNOzNaBPs';
 
 
 // create a new compnent and this commponent redude some html 
-const App =() => {
+class  App  extends Component {
+  constructor(props){
+  	 super(props);
+  	 this.state={videos:[]};
 
-	return <div>hihihihih<ul><li>1</li><li>2</li><li>3</li></ul></div>;
+
+		YTSearch({key:API_KEY,term:'surfboards'},(videos)=>{
+			//console.log('cons in index');
+			//console.log(videos);
+
+				this.setState({videos:videos});
+		})
+
+  }
+
+	render(){
+		//console.log(this.state.videos[0]);
+		   return(
+			<div>
+			<SearchBar />
+
+			<VideoList videos={this.state.videos} />
+			<VideoDetails  video1={this.state.videos[0]} />
+			</div>
+			)
+	}
+
+	
 }
 
 //take this compnent genrated html put on page it meand on dome
