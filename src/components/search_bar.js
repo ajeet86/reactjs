@@ -33,16 +33,18 @@ constructor(props){
 			
 				<input value={this.state.term}
 
-				onChange={event=> this.setState({term:event.target.value})} />
+				onChange={event=> this.onInputChange(event.target.value)} />
 				
 			</div>
 
 			) 
 	}
 
-	onInputChange(event){
+	onInputChange(term){
       //console.log(event.target.value);
       //console.log(event);
+      this.setState({term});
+      this.props.onvideoSearch(term);
 	}
 }
 

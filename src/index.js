@@ -1,3 +1,5 @@
+import _ from 'lodash'; 
+
 import React,{ Component } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -23,7 +25,13 @@ class  App  extends Component {
 	};
 
 
-		YTSearch({key:API_KEY,term:'surfboards'},(videos)=>{
+		this.videoSearch('surfboard');
+
+  }
+
+  videoSearch(term){
+
+  			YTSearch({key:API_KEY,term:term},(videos)=>{
 			//console.log('cons in index');
 			//console.log(videos);
 
@@ -35,14 +43,14 @@ class  App  extends Component {
 					
 				});
 		})
-
   }
 
 	render(){
 		//console.log(this.state.videos[0]);
+		const videoSearch=_.debounce((term)=>{this.videoSearch(term)},400)
 		   return(
 			<div>
-			<SearchBar />
+			<SearchBar onvideoSearch={videoSearch} />
 
 			<VideoList videos={this.state.videos}  onVideoSelect={selectedVideo=>this.setState({selectedVideo})} />
 			<VideoDetails  video1={this.state.selectedVideo} />
