@@ -29,7 +29,7 @@ constructor(props){
 
 		return(
 			 //below input is a controled input and its value is controled by state term
-			<div>
+			<div className="search-bar">
 			
 				<input value={this.state.term}
 
