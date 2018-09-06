@@ -13,7 +13,7 @@ import VideoDetails from './components/video_detail';
 const API_KEY='AIzaSyB2_0RrqqO4MaFVmBN17BwnsjMNOzNaBPs';
 
 
-// create a new compnent and this commponent redude some html 
+// create a new compnent and this commponent redude some html  in
 class  App  extends Component {
   constructor(props){
   	 super(props);

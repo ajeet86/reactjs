@@ -7,7 +7,7 @@ const VideoList=(props)=>{
 
     const videoIteams = props.videos.map((video)=>{
     	//console.log(video.etag);
-    	//console.log('videllist'+video);
+    	//console.log('videllist'+video); in
         return(
 
             <VideoListIteam 

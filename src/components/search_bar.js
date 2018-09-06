@@ -3,7 +3,7 @@
 //state 
 import React,{ Component } from 'react';
 
-//define this component  how we load to index 
+//define this component  how we load to index  in
 
 /*const SarchBar = () => {
 
