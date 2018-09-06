@@ -8,7 +8,18 @@ const VideoList=(props)=>{
     const videoIteams = props.videos.map((video)=>{
     	//console.log(video.etag);
     	//console.log('videllist'+video);
-    	return <VideoListIteam key={video.etag} video={video} />
+        return(
+
+            <VideoListIteam 
+            onVideoSelect={props.onVideoSelect}
+            key={video.etag} 
+
+            video={video} />
+
+
+        )
+        
+        
 
     })
 
